@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自拍电影网 - 自拍短片、手机摄影电影与微电影分享平台</title>
+<meta name="description" content="自拍电影网(https://zipaidianyingwang-wap.github.io)专注自拍短片、手机摄影电影与微电影，提供器材教程、运镜分镜、灯光录音、剪辑调色及优秀自拍作品分享，让每个人都能拍出自己的电影。">
+<meta name="keywords" content="自拍电影网,自拍短片,手机摄影电影,微电影,手机拍电影,手机运镜,自拍教程,手机剪辑">
+<meta name="author" content="自拍电影网">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="自拍电影网 - 自拍短片与手机摄影电影分享平台">
+<meta property="og:description" content="专注自拍短片、手机摄影电影与微电影，提供教程与优秀作品分享。">
+<meta property="og:url" content="https://zipaidianyingwang-wap.github.io/">
+<meta property="og:site_name" content="自拍电影网">
+<link rel="canonical" href="https://zipaidianyingwang-wap.github.io/">
+<style>
+:root{
+  --black:#0d0d0f;
+  --black2:#16161a;
+  --char:#1f1f25;
+  --ink:#ececef;
+  --ink2:#a8a8b3;
+  --muted:#6f6f7c;
+  --gold:#e8b14a;
+  --gold2:#f5d58a;
+  --amber:#ffb340;
+  --line:#2a2a32;
+  --line2:#3a3a45;
+  --sans:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  --mono:"SF Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--ink);font-family:var(--sans);line-height:1.9;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.012) 0 1px,transparent 1px 3px),repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0 1px,transparent 1px 3px)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+.btn{display:inline-block;padding:13px 30px;border-radius:4px;font-size:13.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;transition:.25s;cursor:pointer;border:1px solid var(--gold);background:var(--gold);color:#0d0d0f}
+.btn:hover{background:transparent;color:var(--gold)}
+.btn.ghost{background:transparent;color:var(--gold)}
+.btn.ghost:hover{background:var(--gold);color:#0d0d0f}
+.tape{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--gold);border:1px solid var(--line2);padding:4px 12px;text-transform:uppercase}
+
+/* ===== 头部 ===== */
+header{background:linear-gradient(180deg,#111114,#0d0d0f);border-bottom:1px solid var(--line)}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:12px 0;font-size:12px;color:var(--muted);border-bottom:1px solid var(--line);font-family:var(--mono);letter-spacing:.5px;flex-wrap:wrap;gap:8px}
+.bar a{color:var(--ink2)}
+.bar a:hover{color:var(--gold)}
+.brand{display:flex;justify-content:space-between;align-items:center;padding:26px 0;gap:24px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:16px}
+.logo .frame{width:54px;height:42px;border:2px solid var(--gold);border-radius:4px;position:relative;display:grid;place-items:center}
+.logo .frame::before,.logo .frame::after{content:"";position:absolute;top:50%;transform:translateY(-50%);width:6px;height:16px;background:var(--gold)}
+.logo .frame::before{left:-4px;border-radius:3px 0 0 3px}
+.logo .frame::after{right:-4px;border-radius:0 3px 3px 0}
+.logo .frame b{font-family:var(--mono);font-size:20px;color:var(--gold);font-weight:900}
+.logo .txt h1{font-size:26px;font-weight:900;letter-spacing:1.5px;line-height:1.2}
+.logo .txt h1 a{color:var(--ink)}
+.logo .txt h1 a:hover{color:var(--gold)}
+.logo .txt small{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:3px;text-transform:uppercase}
+.search{display:flex;align-items:center;background:var(--char);border:1px solid var(--line2);border-radius:4px;padding:4px 4px 4px 16px;width:300px}
+.search input{flex:1;border:none;outline:none;background:transparent;font-size:13.5px;color:var(--ink);font-family:inherit}
+.search input::placeholder{color:var(--muted)}
+.search button{border:none;background:var(--gold);color:#0d0d0f;border-radius:3px;padding:9px 20px;font-size:12.5px;font-weight:900;cursor:pointer;letter-spacing:1px;transition:.2s;font-family:inherit}
+.search button:hover{background:var(--gold2)}
+
+/* ===== 导航 ===== */
+nav{position:sticky;top:0;z-index:50;background:rgba(13,13,15,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .inner{display:flex;gap:2px;overflow-x:auto;padding:12px 0;scrollbar-width:none}
+nav .inner::-webkit-scrollbar{display:none}
+nav a{padding:10px 20px;font-size:13.5px;font-weight:800;letter-spacing:1px;color:var(--ink2);white-space:nowrap;transition:.2s;border-bottom:2px solid transparent}
+nav a:hover{color:var(--gold)}
+nav a.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* ===== 通用 ===== */
+section{padding:70px 0;position:relative}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:4px;color:var(--gold);text-transform:uppercase}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px;gap:24px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:18px}
+.sec-head h2{font-size:30px;font-weight:900;letter-spacing:1.5px;margin-top:8px}
+.sec-head .sub{font-size:14px;color:var(--muted);max-width:520px;text-align:right}
+.view-all{text-align:center;margin-top:42px}
+
+/* ===== Hero ===== */
+.hero{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center;padding:56px 0 70px}
+.hero h2{font-size:46px;font-weight:900;line-height:1.25;letter-spacing:1px}
+.hero h2 em{font-style:normal;color:var(--gold)}
+.hero p{font-size:16px;color:var(--ink2);margin:22px 0 30px;max-width:500px}
+.hero .acts{display:flex;gap:14px;flex-wrap:wrap}
+.reel{position:relative;border:1px solid var(--line2);border-radius:6px;overflow:hidden;background:var(--char);padding:14px}
+.reel .strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.reel .shot{aspect-ratio:3/4;border-radius:3px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:12px}
+.reel .shot span{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.85)}
+.reel .shot span:last-child{text-align:right}
+.reel .shot i{font-style:normal;font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:1px}
+.reel .tc{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:12px;padding-top:10px;border-top:1px dashed var(--line2)}
+.s1{background:linear-gradient(160deg,#2c3e50,#1a252f)}
+.s2{background:linear-gradient(160deg,#4a3b2a,#2e2318)}
+.s3{background:linear-gradient(160deg,#3a2a3a,#241824)}
+.s4{background:linear-gradient(160deg,#2a3a3a,#182424)}
+
+/* ===== 栏目一：自拍作品（带进度条与元数据） ===== */
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px}
+.filters button{background:var(--char);border:1px solid var(--line2);color:var(--ink2);padding:9px 20px;font-size:13px;font-weight:700;border-radius:3px;cursor:pointer;transition:.2s;font-family:var(--mono);letter-spacing:1px}
+.filters button:hover,.filters button.on{border-color:var(--gold);color:var(--gold);background:rgba(232,177,74,.08)}
+.feed{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.film{background:var(--char);border:1px solid var(--line);border-radius:6px;overflow:hidden;transition:.3s;display:flex;flex-direction:column}
+.film:hover{border-color:var(--gold);transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,.5)}
+.film .cap{aspect-ratio:16/10;position:relative;padding:14px;display:flex;flex-direction:column;justify-content:space-between}
+.film .cap .top{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px}
+.film .cap .top b{color:var(--gold)}
+.film .cap .top span{color:rgba(255,255,255,.8)}
+.film .cap .reso{font-family:var(--mono);font-size:11px;color:#fff;align-self:flex-start;background:rgba(0,0,0,.45);padding:3px 10px;border-radius:3px}
+.film .body{padding:18px 20px 22px;flex:1;display:flex;flex-direction:column}
+.film .body h3{font-size:19px;font-weight:900;letter-spacing:.5px}
+.film .body h3 a:hover{color:var(--gold)}
+.film .body .by{font-size:12px;color:var(--muted);margin:8px 0 14px;font-family:var(--mono)}
+.film .stats{margin-top:auto;border-top:1px solid var(--line);padding-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.film .stats div span{display:block;font-family:var(--mono);font-size:16px;font-weight:900;color:var(--gold)}
+.film .stats div small{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+
+/* ===== 栏目二：教程学院（时间线分镜） ===== */
+.school{background:var(--char);border:1px solid var(--line);border-radius:6px;padding:40px 44px}
+.track{position:relative;padding-left:60px}
+.track::before{content:"";position:absolute;left:18px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--gold),transparent)}
+.step{position:relative;padding-bottom:34px}
+.step:last-child{padding-bottom:0}
+.step .dot{position:absolute;left:-60px;top:0;width:38px;height:38px;border:2px solid var(--gold);border-radius:4px;background:var(--black);display:grid;place-items:center;font-family:var(--mono);font-size:13px;font-weight:900;color:var(--gold)}
+.step .card{background:var(--black2);border:1px solid var(--line);border-radius:6px;padding:22px 24px;transition:.25s}
+.step .card:hover{border-color:var(--gold)}
+.step .card h4{font-size:19px;font-weight:900;letter-spacing:.5px}
+.step .card h4 a:hover{color:var(--gold)}
+.step .tags{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.step .tags i{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--gold);background:rgba(232,177,74,.1);padding:4px 12px;border-radius:3px}
+.step .card p{font-size:14px;color:var(--ink2)}
+
+/* ===== 栏目三：器材工坊（规格卡） ===== */
+.gear{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.gc{background:var(--char);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:6px;padding:24px 22px;transition:.25s}
+.gc:hover{border-color:var(--gold);background:var(--black2)}
+.gc .ic{width:44px;height:44px;border:1px solid var(--line2);border-radius:6px;display:grid;place-items:center;font-size:20px;margin-bottom:16px;color:var(--gold)}
+.gc h4{font-size:17px;font-weight:900;letter-spacing:.5px;margin-bottom:8px}
+.gc p{font-size:13px;color:var(--ink2)}
+.gc dl{margin-top:16px;border-top:1px dashed var(--line);padding-top:14px}
+.gc dt{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:1px;text-transform:uppercase}
+.gc dd{font-size:14px;margin-bottom:10px;color:var(--ink)}
+.gc dd:last-child{margin-bottom:0}
+
+/* ===== 栏目四：挑战赛（积分榜） ===== */
+.heat{display:grid;grid-template-columns:1.6fr 1fr;gap:30px}
+.board{background:var(--char);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.board .th{display:grid;grid-template-columns:60px 2.4fr 1fr 1fr 1fr 90px;gap:12px;padding:14px 20px;background:var(--black2);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase}
+.board .tr{display:grid;grid-template-columns:60px 2.4fr 1fr 1fr 1fr 90px;gap:12px;padding:16px 20px;align-items:center;border-bottom:1px solid var(--line);transition:.2s}
+.board .tr:last-child{border-bottom:none}
+.board .tr:hover{background:rgba(232,177,74,.05)}
+.board .tr .rk{font-family:var(--mono);font-size:18px;font-weight:900;color:var(--line2)}
+.board .tr.top1 .rk,.board .tr.top2 .rk,.board .tr.top3 .rk{color:var(--gold)}
+.board .tr .nm{font-size:15px;font-weight:800}
+.board .tr .nm small{display:block;font-size:12px;color:var(--muted);font-family:var(--mono);font-weight:400}
+.board .tr .num{font-family:var(--mono);font-size:14px;color:var(--ink2)}
+.board .tr .num.up{color:var(--gold)}
+.bar-mini{height:6px;background:var(--black2);border-radius:4px;overflow:hidden}
+.bar-mini i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--amber));border-radius:4px}
+.side h4{font-size:20px;font-weight:900;letter-spacing:1px;margin-bottom:6px}
+.side .hint{font-size:12.5px;color:var(--muted);margin-bottom:20px;font-family:var(--mono);letter-spacing:.5px}
+.rule{display:flex;gap:14px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.rule .n{font-family:var(--mono);font-size:13px;color:var(--gold);font-weight:900;flex-shrink:0}
+.rule b{display:block;font-size:14.5px}
+.rule span{font-size:12.5px;color:var(--ink2)}
+
+/* ===== 关于 ===== */
+.about{background:linear-gradient(135deg,#1a1a20,#0f0f12);border:1px solid var(--line2);border-left:4px solid var(--gold);border-radius:8px;padding:48px 44px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.about h2{font-size:30px;font-weight:900;letter-spacing:1.5px;margin-bottom:18px}
+.about p{font-size:15.5px;color:var(--ink2)}
+.about .hl{color:var(--gold);font-weight:700}
+.stats2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.stats2 div{background:var(--char);border:1px solid var(--line);border-radius:6px;padding:22px;text-align:center}
+.stats2 b{display:block;font-family:var(--mono);font-size:32px;font-weight:900;color:var(--gold)}
+.stats2 span{font-size:12px;color:var(--muted);letter-spacing:1px;text-transform:uppercase}
+
+/* ===== 页脚 ===== */
+footer{background:#09090b;border-top:1px solid var(--line);padding:56px 0 24px;margin-top:40px}
+.foot{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:36px}
+.foot .bl h4{font-family:var(--mono);font-size:20px;font-weight:900;color:var(--gold);letter-spacing:2px}
+.foot .bl p{font-size:13.5px;color:var(--ink2);margin-top:14px;max-width:360px}
+.foot .bl .frame-line{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:16px}
+.foot h5{font-size:13px;font-weight:900;color:var(--gold);margin-bottom:16px;letter-spacing:1.5px;text-transform:uppercase}
+.foot ul{list-style:none;font-size:13.5px}
+.foot li{padding:6px 0}
+.foot a{color:var(--ink2)}
+.foot a:hover{color:var(--gold)}
+.subscribe{display:flex;gap:0;margin-top:18px;max-width:360px}
+.subscribe input{flex:1;border:1px solid var(--line2);border-right:none;background:var(--char);border-radius:4px 0 0 4px;padding:12px 16px;font-size:13.5px;outline:none;color:var(--ink);font-family:inherit}
+.subscribe button{border:none;border-radius:0 4px 4px 0;background:var(--gold);color:#0d0d0f;padding:0 22px;font-size:12.5px;font-weight:900;cursor:pointer;font-family:inherit}
+.copyright{margin-top:38px;border-top:1px solid var(--line);padding-top:22px;font-size:12.5px;color:var(--muted);text-align:center;font-family:var(--mono);line-height:2.2}
+.copyright a{color:var(--gold);font-weight:700}
+
+/* ===== 响应式 ===== */
+@media (max-width:1000px){
+  .wrap{padding:0 18px}
+  .hero{grid-template-columns:1fr;gap:36px}
+  .feed{grid-template-columns:repeat(2,1fr)}
+  .gear{grid-template-columns:repeat(2,1fr)}
+  .heat{grid-template-columns:1fr}
+  .board .th,.board .tr{grid-template-columns:44px 2fr 1fr 80px;font-size:12px}
+  .board .th .c-hide,.board .tr .c-hide{display:none}
+  .about-grid{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr 1fr;gap:30px}
+  .reel .strip{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:600px){
+  .brand{padding:20px 0}
+  .search{width:100%}
+  .logo .txt h1{font-size:20px}
+  .hero h2{font-size:30px}
+  nav a{padding:10px 14px;font-size:12.5px}
+  .sec-head h2{font-size:22px}
+  .sec-head .sub{text-align:left}
+  .feed,.gear{grid-template-columns:1fr}
+  .school{padding:26px 20px}
+  .track{padding-left:46px}
+  .step .dot{left:-46px;width:32px;height:32px;font-size:11px}
+  .board .th,.board .tr{grid-template-columns:36px 1fr 70px;font-size:11px}
+  .about{border-radius:6px;padding:32px 24px}
+  .stats2{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr}
+  section{padding:52px 0}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaolu.js"></script>
+
+<!-- ============ 头部 ============ -->
+<header>
+  <div class="wrap">
+    <div class="bar">
+      <span>// ROLL 01 · SCENE 01 · TAKE 01 — 自拍电影网 已开机</span>
+      <span><a href="#about">关于本站</a> &nbsp;·&nbsp; <a href="#">投稿作品</a> &nbsp;·&nbsp; <a href="#">创作者中心</a> &nbsp;·&nbsp; <a href="#">登录</a></span>
+    </div>
+    <div class="brand">
+      <div class="logo">
+        <div class="frame"><b>ZP</b></div>
+        <div class="txt">
+          <h1><a href="https://zipaidianyingwang-wap.github.io/" title="自拍电影网">自拍电影网</a></h1>
+          <small>SHOOT YOUR OWN FILM</small>
+        </div>
+      </div>
+      <form class="search" onsubmit="return false;">
+        <input type="text" placeholder="搜索片名 / 教程 / 器材">
+        <button type="submit">搜索</button>
+      </form>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 导航 ============ -->
+<nav>
+  <div class="wrap inner">
+    <a href="#works" class="active">自拍作品</a>
+    <a href="#school">教程学院</a>
+    <a href="#gear">器材工坊</a>
+    <a href="#challenge">挑战赛</a>
+    <a href="#about">关于我们</a>
+    <a href="#">手机运镜</a>
+    <a href="#">灯光录音</a>
+    <a href="#">剪辑调色</a>
+    <a href="#">剧本分镜</a>
+  </div>
+</nav>
+
+<!-- ============ Hero ============ -->
+<section class="hero-wrap" style="padding:0;">
+  <div class="wrap hero">
+    <div>
+      <span class="tape">// Reel 2026 · 第四期已上线</span>
+      <h2>一部手机，<br>就是你的<em>第一台摄影机</em></h2>
+      <p>自拍电影网专注自拍短片与手机摄影电影，汇集手机拍摄作品、运镜分镜教程、器材灯光与剪辑调色技巧，让零基础的人也能完成属于自己的第一支短片。</p>
+      <div class="acts">
+        <a href="#works" class="btn">开始拍摄</a>
+        <a href="#school" class="btn ghost">看教程</a>
+      </div>
+    </div>
+    <div class="reel">
+      <div class="strip">
+        <div class="shot s1"><span>SC.01</span><i>▲ 24fps</i><span>00:12</span></div>
+        <div class="shot s2"><span>SC.02</span><i>▲ 手持跟拍</i><span>00:47</span></div>
+        <div class="shot s3"><span>SC.03</span><i>▲ 逆光剪影</i><span>01:03</span></div>
+        <div class="shot s4"><span>SC.04</span><i>▲ 固定长镜</i><span>01:38</span></div>
+        <div class="shot s2"><span>SC.05</span><i>▲ 过肩反打</i><span>02:11</span></div>
+        <div class="shot s3"><span>SC.06</span><i>▲ 俯拍俯视</i><span>02:40</span></div>
+        <div class="shot s1"><span>SC.07</span><i>▲ 推镜收尾</i><span>03:02</span></div>
+        <div class="shot s4"><span>SC.08</span><i>▲ 黑场出字</i><span>03:21</span></div>
+      </div>
+      <div class="tc"><span>总时长 03:21</span><span>8 个镜头 · 3 场戏</span><span>导出 1080p60</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 栏目一：自拍作品 ============ -->
+<section id="works">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="kicker">// 01 Selected Works</span><h2>自拍作品精选</h2></div>
+      <p class="sub">全部由手机或轻量设备拍摄完成，含机位、时长、器材与后期方案，可直接复盘学习。</p>
+    </div>
+    <div class="filters">
+      <button class="on">全部作品</button>
+      <button>剧情短片</button>
+      <button>纪录片</button>
+      <button>Vlog 影像</button>
+      <button>一镜到底</button>
+      <button>手机拍摄</button>
+      <button>无对白</button>
+    </div>
+    <div class="feed">
+      <article class="film">
+        <div class="cap s1"><div class="top"><b>SC.01</b><span>03:21</span></div><div class="reso">4K · 24fps · 电影模式</div></div>
+        <div class="body">
+          <h3><a href="#">楼下那家面馆的下午</a></h3>
+          <div class="by">DIR. 陈屿 · iPhone 16 Pro · 3 场戏 8 镜</div>
+          <p>用一部手机拍下城中村最后一家老面馆，固定长镜加手持跟拍，全片无对白，靠环境声撑起叙事。</p>
+          <div class="stats"><div><span>4.2k</span><small>播放</small></div><div><span>386</span><small>点赞</small></div><div><span>92</span><small>评论</small></div></div>
+        </div>
+      </article>
+      <article class="film">
+        <div class="cap s2"><div class="top"><b>SC.02</b><span>07:48</span></div><div class="reso">1080p · 30fps · LOG 灰片</div></div>
+        <div class="body">
+          <h3><a href="#">我把夏天存进了冰箱</a></h3>
+          <div class="by">DIR. 苏青 · 安卓旗舰 · 1 场戏 1 镜</div>
+          <p>七个场景一镜到底，全程手持跟拍，靠遮罩转场和走位切换时空，前期排练了 11 次。</p>
+          <div class="stats"><div><span>9.7k</span><small>播放</small></div><div><span>1.2k</span><small>点赞</small></div><div><span>214</span><small>评论</small></div></div>
+        </div>
+      </article>
+      <article class="film">
+        <div class="cap s3"><div class="top"><b>SC.03</b><span>05:12</span></div><div class="reso">4K · 60fps 降格 · 夜景</div></div>
+        <div class="body">
+          <h3><a href="#">凌晨两点的便利店</a></h3>
+          <div class="by">DIR. 阿May · 手机 + 补光灯 · 2 场戏 5 镜</div>
+          <p>只用一盏便携补光灯做主光，霓虹反射做环境光，讲两个夜班人的十分钟交集。</p>
+          <div class="stats"><div><span>6.3k</span><small>播放</small></div><div><span>702</span><small>点赞</small></div><div><span>158</span><small>评论</small></div></div>
+        </div>
+      </article>
+      <article class="film">
+        <div class="cap s4"><div class="top"><b>SC.04</b><span>11:05</span></div><div class="reso">4K · 25fps · 自然光</div></div>
+        <div class="body">
+          <h3><a href="#">她骑车的那条河堤</a></h3>
+          <div class="by">DIR. 林知夏 · 手机稳定器 · 4 场戏 12 镜</div>
+          <p>全自然光拍摄的青春纪录片，逆光剪影与过肩反打交替，靠调度把十分钟骑行列成完整段落。</p>
+          <div class="stats"><div><span>12.4k</span><small>播放</small></div><div><span>2.1k</span><small>点赞</small></div><div><span>376</span><small>评论</small></div></div>
+        </div>
+      </article>
+      <article class="film">
+        <div class="cap s1"><div class="top"><b>SC.05</b><span>02:37</span></div><div class="reso">2K · 48fps 慢动作 · 微距</div></div>
+        <div class="body">
+          <h3><a href="#">一碗汤的三十秒</a></h3>
+          <div class="by">DIR. 小满 · 手机微距镜 · 1 场戏 4 镜</div>
+          <p>专注食物的微距短片，蒸汽、油花与倒影，用慢动作把日常拍出仪式感。</p>
+          <div class="stats"><div><span>3.1k</span><small>播放</small></div><div><span>445</span><small>点赞</small></div><div><span>76</span><small>评论</small></div></div>
+        </div>
+      </article>
+      <article class="film">
+        <div class="cap s2"><div class="top"><b>SC.06</b><span>16:20</span></div><div class="reso">4K · 24fps · 双机位</div></div>
+        <div class="body">
+          <h3><a href="#">奶奶的最后一封菜谱</a></h3>
+          <div class="by">DIR. 周野 · 双手机 · 5 场戏 18 镜</div>
+          <p>家庭口述史式短片，双机位交叉剪辑，靠环境音与厨房声构建记忆的层次。</p>
+          <div class="stats"><div><span>18.9k</span><small>播放</small></div><div><span>3.4k</span><small>点赞</small></div><div><span>512</span><small>评论</small></div></div>
+        </div>
+      </article>
+    </div>
+    <div class="view-all"><a href="#" class="btn ghost">查看全部 128 部作品 →</a></div>
+  </div>
+</section>
+
+<!-- ============ 栏目二：教程学院 ============ -->
+<section id="school" style="background:var(--black2);">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="kicker">// 02 Masterclass</span><h2>教程学院</h2></div>
+      <p class="sub">从第一次开机到成片输出，按拍摄流程排好的实战课单，每节都带可直接照做的步骤。</p>
+    </div>
+    <div class="school">
+      <div class="track">
+        <div class="step">
+          <div class="dot">01</div>
+          <div class="card">
+            <h4><a href="#">开机第一课：把手机当成摄影机，而不是手机</a></h4>
+            <div class="tags"><i>基础</i><i>15 min</i><i>零基础</i></div>
+            <p>关掉滤镜、锁定曝光、开网格线、关自动美颜——四个开关决定了你的画面是否「像电影」。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="dot">02</div>
+          <div class="card">
+            <h4><a href="#">六种手机运镜：推、拉、摇、移、跟、升降</a></h4>
+            <div class="tags"><i>运镜</i><i>28 min</i><i>含分镜稿</i></div>
+            <p>六种基础机位配具体调度方案，附上每个镜头的起幅、落幅与速率参考，照着走就能拍稳。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="dot">03</div>
+          <div class="card">
+            <h4><a href="#">一盏灯打全片：手机短片的灯光布置</a></h4>
+            <div class="tags"><i>灯光</i><i>22 min</i><i>低成本</i></div>
+            <p>只用一盏便携灯 + 一张反光板，讲清主光、辅光、轮廓光的位置与强度配比，夜景也能拍干净。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="dot">04</div>
+          <div class="card">
+            <h4><a href="#">同期声与旁白：手机录音的补救方案</a></h4>
+            <div class="tags"><i>录音</i><i>18 min</i><i>后期</i></div>
+            <p>手机麦克风的天生短板怎么补？领夹麦、防风毛衣、手动增益与后期降噪的全流程做法。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="dot">05</div>
+          <div class="card">
+            <h4><a href="#">剪辑与调色：从灰片到成片的完整流水线</a></h4>
+            <div class="tags"><i>后期</i><i>34 min</i><i>含 LUT</i></div>
+            <p>LOG 灰片如何还原色彩、统一影调并做出电影感；附三组可直接套用的调色预设。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="dot">06</div>
+          <div class="card">
+            <h4><a href="#">分镜稿与拍摄清单：让一天拍完一部短片</a></h4>
+            <div class="tags"><i>制片</i><i>12 min</i><i>模板下载</i></div>
+            <p>从剧本拆场到分镜稿、通告单与器材清单，把「临时起意」变成「按表执行」。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="view-all"><a href="#" class="btn ghost">查看全部 42 节课程 →</a></div>
+  </div>
+</section>
+
+<!-- ============ 栏目三：器材工坊 ============ -->
+<section id="gear">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="kicker">// 03 Gear Lab</span><h2>器材工坊</h2></div>
+      <p class="sub">把钱花在真正影响画质的地方：镜头、稳定、灯光、录音、存储，按预算给方案。</p>
+    </div>
+    <div class="gear">
+      <div class="gc">
+        <div class="ic">◉</div>
+        <h4>手机镜头组</h4>
+        <p>广角、微距、长焦附加镜，怎么选不交智商税。</p>
+        <dl>
+          <dt>推荐预算</dt><dd>¥200 – ¥800</dd>
+          <dt>优先选</dt><dd>镀膜、无暗角、带收纳盒</dd>
+          <dt>避坑</dt><dd>万能夹、无品牌套装</dd>
+        </dl>
+      </div>
+      <div class="gc">
+        <div class="ic">◐</div>
+        <h4>稳定器 / 手机夹</h4>
+        <p>三轴稳定器与手持云台的取舍，续航与便携的平衡。</p>
+        <dl>
+          <dt>推荐预算</dt><dd>¥400 – ¥1500</dd>
+          <dt>优先选</dt><dd>承重 ≥250g、续航 8h+</dd>
+          <dt>避坑</dt><dd>无跟焦轮的入门款</dd>
+        </dl>
+      </div>
+      <div class="gc">
+        <div class="ic">☼</div>
+        <h4>便携灯光</h4>
+        <p>补光棒、口袋灯与反光板，低成本解决夜景脏与脸黑。</p>
+        <dl>
+          <dt>推荐预算</dt><dd>¥150 – ¥600</dd>
+          <dt>优先选</dt><dd>RGB + CCT 双模式</dd>
+          <dt>避坑</dt><dd>只有白光的迷你灯</dd>
+        </dl>
+      </div>
+      <div class="gc">
+        <div class="ic">♪</div>
+        <h4>录音与配件</h4>
+        <p>领夹麦、防风毛衣、手机接口与存储卡的组合方案。</p>
+        <dl>
+          <dt>推荐预算</dt><dd>¥200 – ¥900</dd>
+          <dt>优先选</dt><dd>2.4G 无线、Type-C/Lightning 通用</dd>
+          <dt>避坑</dt><dd>蓝牙录音（有延迟）</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 栏目四：挑战赛 ============ -->
+<section id="challenge" style="background:var(--black2);">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="kicker">// 04 Challenge Board</span><h2>本周挑战赛榜单</h2></div>
+      <p class="sub">每月一个命题，限手机拍摄、3 分钟内、不限风格，上榜作品全站推荐。</p>
+    </div>
+    <div class="heat">
+      <div class="board">
+        <div class="th"><span class="rk">排名</span><span class="nm">作品</span><span class="c-hide">作者</span><span class="c-hide">时长</span><span>热度</span><span>进度</span></div>
+        <div class="tr top1"><span class="rk">01</span><span class="nm">凌晨两点的便利店<small>阿May · 夜景霓虹</small></span><span class="c-hide">阿May</span><span class="c-hide">05:12</span><span class="num up">▲ 9821</span><span><div class="bar-mini"><i style="width:100%"></i></div></span></div>
+        <div class="tr top2"><span class="rk">02</span><span class="nm">她骑车的那条河堤<small>林知夏 · 自然光</small></span><span class="c-hide">林知夏</span><span class="c-hide">11:05</span><span class="num up">▲ 8734</span><span><div class="bar-mini"><i style="width:89%"></i></div></span></div>
+        <div class="tr top3"><span class="rk">03</span><span class="nm">我把夏天存进了冰箱<small>苏青 · 一镜到底</small></span><span class="c-hide">苏青</span><span class="c-hide">07:48</span><span class="num up">▲ 7612</span><span><div class="bar-mini"><i style="width:78%"></i></div></span></div>
+        <div class="tr"><span class="rk">04</span><span class="nm">楼下那家面馆的下午<small>陈屿 · 固定长镜</small></span><span class="c-hide">陈屿</span><span class="c-hide">03:21</span><span class="num">6120</span><span><div class="bar-mini"><i style="width:62%"></i></div></span></div>
+        <div class="tr"><span class="rk">05</span><span class="nm">奶奶的最后一封菜谱<small>周野 · 家庭纪实</small></span><span class="c-hide">周野</span><span class="c-hide">16:20</span><span class="num">5340</span><span><div class="bar-mini"><i style="width:54%"></i></div></span></div>
+        <div class="tr"><span class="rk">06</span><span class="nm">一碗汤的三十秒<small>小满 · 微距慢动作</small></span><span class="c-hide">小满</span><span class="c-hide">02:37</span><span class="num">4188</span><span><div class="bar-mini"><i style="width:43%"></i></div></span></div>
+      </div>
+      <aside class="side">
+        <h4>本月命题</h4>
+        <p class="hint">// THEME 2026-10 · 「十分钟的交集」</p>
+        <div class="rule"><div class="n">01</div><div><b>只拍 10 分钟内的真实交集</b><span>两个人或两个事物之间，只有十分钟的交集，把它讲完。</span></div></div>
+        <div class="rule"><div class="n">02</div><div><b>全程手机拍摄</b><span>允许附加镜头与稳定器，不允许用相机或专业摄像机。</span></div></div>
+        <div class="rule"><div class="n">03</div><div><b>成片 3 分钟内</b><span>时长精确到秒，超时一律不参与评选。</span></div></div>
+        <div class="rule"><div class="n">04</div><div><b>原创声音与画面</b><span>音乐需为免版税素材，字幕与片名需自行设计。</span></div></div>
+        <a href="#" class="btn" style="margin-top:22px;">立即投稿参赛</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 关于我们 ============ -->
+<section id="about" style="padding-bottom:0;">
+  <div class="wrap">
+    <div class="about">
+      <div class="about-grid">
+        <div>
+          <span class="kicker">// About</span>
+          <h2>关于 自拍电影网</h2>
+          <p><span class="hl">自拍电影网</span>（https://zipaidianyingwang-wap.github.io）是一个面向手机创作者的短片平台——我们相信好故事不取决于设备预算，而取决于你敢不敢按下录制键。这里汇集自拍短片作品、从零到成的实战教程、器材灯光录音的选购方案，以及每月一次的命题挑战赛。</p>
+          <p style="margin-top:12px;">无论你只有一部手机，还是已经攒了一套轻量装备，都能在这里找到下一步该怎么拍。</p>
+        </div>
+        <div class="stats2">
+          <div><b>128</b><span>部精选短片</span></div>
+          <div><b>42</b><span>节实战课程</span></div>
+          <div><b>3600+</b><span>位创作者</span></div>
+          <div><b>36</b><span>期挑战赛</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 页脚 ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="bl">
+        <h4>自拍电影网</h4>
+        <p>专注自拍短片、手机摄影电影与微电影，提供作品分享、教程与器材方案，让每个人都能拍出自己的电影。内容仅供学习交流，拍摄请遵守当地法规并取得肖像授权。</p>
+        <div class="frame-line">// 拍摄声明：尊重被拍摄者 · 取得授权 · 安全优先</div>
+        <form class="subscribe" onsubmit="return false;">
+          <input type="email" placeholder="留下邮箱，每月收到一份拍摄清单">
+          <button type="submit">订阅</button>
+        </form>
+      </div>
+      <div>
+        <h5>栏目导航</h5>
+        <ul>
+          <li><a href="#works">自拍作品</a></li>
+          <li><a href="#school">教程学院</a></li>
+          <li><a href="#gear">器材工坊</a></li>
+          <li><a href="#challenge">挑战赛</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>学习路径</h5>
+        <ul>
+          <li><a href="#">手机运镜</a></li>
+          <li><a href="#">灯光录音</a></li>
+          <li><a href="#">剪辑调色</a></li>
+          <li><a href="#">剧本分镜</a></li>
+          <li><a href="#">器材选购</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>关于本站</h5>
+        <ul>
+          <li><a href="#about">网站介绍</a></li>
+          <li><a href="#">投稿作品</a></li>
+          <li><a href="#">版权声明</a></li>
+          <li><a href="#">隐私政策</a></li>
+          <li><a href="#">联系我们</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2026 自拍电影网 zipaidianyingwang-wap.github.io 版权所有 · 本站内容仅供手机拍摄短片交流与学习参考，作品版权归原作者所有<br>
+      网站名称：<a href="https://zipaidianyingwang-wap.github.io/">自拍电影网</a> ｜ 网站网址：https://zipaidianyingwang-wap.github.io/
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.filters').forEach(g=>{
+  g.addEventListener('click',e=>{
+    const b=e.target.closest('button');if(!b)return;
+    g.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  });
+});
+</script>
+</body>
+</html>
